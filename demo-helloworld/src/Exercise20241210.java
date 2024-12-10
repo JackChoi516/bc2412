@@ -37,5 +37,7 @@ public class Exercise20241210 {
     //(2) Java Virtual Machine (JVM) > convert class file to machiine code > execute machine code
     //short s1 = 
 
+    
+
   }
 }
