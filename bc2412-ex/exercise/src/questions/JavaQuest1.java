@@ -12,7 +12,7 @@ package questions;
  * The variable varC is true
  * The variable fnumber is -130.2
  * The variable dnumber is -20.5
- * The variable reminder is 1
+ * The variable remainder is 1
  * The variable result is 3
  */
 // Primitive types and operators
@@ -65,13 +65,13 @@ public class JavaQuest1 {
     System.out.println("The variable fnumber is " + fnumber);
     System.out.println("The variable dnumber is " + dnumber);
 
-    // Find reminder. Declare variable a & reminder
+    // Find remainder. Declare variable a & remainder
     int a = 7;
     int b = 3;
     // Fix it ...
     b = 6;
-    int reminder = a - b;
-    System.out.println("The variable reminder is " + reminder);
+    int remainder = a % b;
+    System.out.println("The variable remainder is " + remainder);
 
     // declare a variable x and assign value to it.
     int e = 7;
