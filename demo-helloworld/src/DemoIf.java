@@ -101,6 +101,13 @@ public class DemoIf {
     //if (score >= 90)
     //}
 
+    String goodbye = "goodbye";
+    if (goodbye. length()> 7){
+      System.out.println("goodbyelength> 7");
+    }else {
+      System.out.println("length<7");
+    }
+
      
 
 
