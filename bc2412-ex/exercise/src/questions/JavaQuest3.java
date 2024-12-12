@@ -32,13 +32,19 @@ public class JavaQuest3 {
     // 100) or The year can divided by 400
     // otherwise the February should have 28 days only
 
+    if (month == 2){
+      monthOfName = "February";
+    }else if (month == 12){
+      monthOfName = "December";
+    }
+    
     if ( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
       numberOfDaysInMonth = 31;
-    }else if ((year%4 == 0 && year%100 != 0) || year%400 == 0 & month == 2){
-      numberOfDaysInMonth = 29;  
-    }else if ((year%4 != 0 || year%100 == 0) && month == 2 ){numberOfDaysInMonth = 28;}
-    else{ numberOfDaysInMonth = 30;}
-
+    } else if ( month != 2 ){
+      numberOfDaysInMonth = 30;
+    }else if (year%4 ==0 && year%100 !=0 || year%400 == 0){
+      numberOfDaysInMonth = 29;
+    }else {numberOfDaysInMonth = 28;}
 
 
     System.out.println(
