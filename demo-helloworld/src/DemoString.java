@@ -59,6 +59,31 @@ public class DemoString {
     System.out.println("hello". length());//5
     
     //'c'. charAt() // Primitive has no method tool
+
+    // isEmpty()
+    String s5 = "abc";
+    // Check if s5 is empty
+    boolean isEmpty = s5. length() == 0;
+    System.out.println(isEmpty);//false
+    System.out.println(s5. isEmpty());//false
+
+    if (!s5.isEmpty()){
+
+    }
+
+    // substring
+    // abc
+    String substr = s5.substring(0, 2);
+    // ! s5'svalue doesn't change 
+    // ! substring is storing a new String value returned by "substring"
+    System.out.println(substr);//ab
+    System.out.println(s5. substring(0, 3));//abc
+    System.out.println(s5. substring(0, s5. length()));//abc// System.out.println(s5)
+    System.out.println(s5. substring(1, s5. length()));//bc
+    System.out.println(s5. substring(1));//bc
+
+    
+
     
 
 
