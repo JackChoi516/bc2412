@@ -83,6 +83,13 @@ public class DemoString {
     System.out.println(s5. substring(1));//bc
 
     
+    // String s502 = s5. substring(0,2);
+    // System.out.println(s502);
+    // if (s5. substring(0,2) == "ab"){
+    //   System.out.println("substring0,2 is ab");
+    // }
+
+      
 
     
 

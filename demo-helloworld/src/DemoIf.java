@@ -105,7 +105,7 @@ public class DemoIf {
     if (goodbye. length()> 7){
       System.out.println("goodbyelength> 7");
     }else {
-      System.out.println("length<7");
+      System.out.println("length<=7");
     }
 
      
