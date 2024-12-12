@@ -10,7 +10,7 @@ public class JavaQuest2 {
     int a = 10;
     if (a == 9) {
       System.out.println("a is equals to 9");
-    } else if ( a < 8 && a > 8) {
+    } else if ( a < 8 && a > 0) {
       System.out.println("a is between 0 and 8");
     // how about a > 9?
     } else if (a < 0) {
