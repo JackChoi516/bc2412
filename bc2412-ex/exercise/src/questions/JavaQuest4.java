@@ -10,11 +10,10 @@ public static void main(String[] args) {
  // 1. Even numbers
  // 2. Divisible by 3
  // 3. > 0
-  int row = 10;
+ int row = 10;
  
-  for (int j = 1; j < 100; j++) {
-   if (j%2 == 0 && j%3 == 0 && j > 0){row -=1 ;if (row >= 0){System.out.print(j + " ");}}}
-
+ for (int j = 1; j < 100; j++) {
+  if (j%2 == 0 && j%3 == 0 && j > 0){row -=1 ;if (row >= 0){System.out.print(j + " ");}}}
 
 
 
