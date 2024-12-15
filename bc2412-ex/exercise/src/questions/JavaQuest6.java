@@ -8,5 +8,9 @@ public class JavaQuest6 {
     int first = 0, second = 1;
     // for loop to print first 15 numbers in Fibonacci Sequence
 
+ for (int i = 0; i < 15; i++){
+if ( first < second ){ System.out.print( first + " " ); first = first + second;}
+else if ( first >= second ){ System.out.print( second + " " ); second = second + first;}}
+
   }
 }
