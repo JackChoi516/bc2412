@@ -98,12 +98,11 @@ public class DemoBigDecimal {
     System.out.println(Math.sqrt(-10)); // NaN
 
     // round() > nearest to integer
-    // double u = 3.456;
-    // System.out.println(Math.round(u)); // 3
+    double u = 3.456;
+    System.out.println(Math.round(u)); // 3
 
     //Nearest 2 d.p > 3.46
-    double u3 = 3.456;
-    System.out.println(Math.round(u3 * 100.0 / 100.0)); // 3.46
+    System.out.println(Math.round(u * 100) / 100.0); // 3.46
 
     double u2 = 3.556;
     System.out.println(Math.round(u2)); // 4

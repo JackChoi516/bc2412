@@ -142,11 +142,59 @@ public class DemoArray {
     double[] price = new double[]{8.2, 6.5, 10.5};
     int[] quantities = new int[]{9, 8, 3};
     // 8.2 * 9 + 6.5 * 8 + 10.5 * 3
-    double totalPrice = 0;
+    double totalPrice = 0.0;
     for (int i = 0; i < price.length; i++){
         totalPrice = totalPrice + price[i] * quantities[i];
     }
-    System.out.println(totalPrice); // 158.3
+    System.out.println(totalPrice); // 157.3
+
+    String s = String.valueOf(123); // "123"
+    s = String.valueOf(true);
+    System.out.println(s); // true
+
+    System.out.println(String.valueOf('A')); // "A"
+
+    Integer i1 = Integer.valueOf("123");
+    System.out.println(i1); //123
+    // Integer i2 = Integer.valueOf("h");
+    // System.out.println(i2);// java.lang.NumberFormatException
+
+    // "hello" > "h", "e", "l", "l", "o"
+    char[] chArr = "hello".toCharArray();
+    System.out.println(chArr);
+    System.out.println(chArr[0]); // h
+
+    // hello > olleh
+    char temp3 = ' ';
+    for (int i = 0; i < chArr.length / 2; i++){ 
+        // chArr[i] vs chArr[chArr.length - 1]
+        temp3 = chArr[i];
+        chArr[i] =chArr[chArr.length - 1 - i ];
+        chArr[chArr.length - 1 - i ] = temp3;
+    }
+    String result = "";
+    for (int i = 0; i < chArr.length; i++){
+        result += chArr[i];
+
+    }System.out.println(result); // "olleh" char + String = String
+
+    // h > i, e > f, l > m, o > p
+    // ifmmp
+    chArr = "hello".toCharArray();
+    for (int i = 0; i < chArr.length; i++){
+      chArr[i] = (char) (chArr[i] + 1);
+    }
+    System.out.println(String.valueOf(chArr)); // "ifmmp", char Array > String
+
+    // asume we have small letter ONLY
+    char[] arr12 = new char[]{'p', 'a', 'p', 'b', 'a', 'p'};
+    // more than one loop
+    //System.out.println(maxNumChar); //p
+    for (int i = 0; i < arr12.length; i++){
+        for (int j = 0; j < arr12.length; j++){
+            if (arr12[0] == arr12[j+1]){}
+        }
+    }
 
 
     
