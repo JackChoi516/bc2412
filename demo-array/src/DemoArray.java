@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class DemoArray {
     public static void main(String[]args){
 
@@ -55,7 +57,7 @@ public class DemoArray {
     // convert the char value to int value, and then assign them to a new int array
     // 98, 99, 97 (char)
     int[] arr5 = new int[arr4.length];
-    for (int i = 0; i < arr4.length; i++){
+    for (int i = 0; i < arr4.length; i++){ // 0,1,2
     arr5[i] = arr4[i]; // char value arr4[i] > int variable att5[i]
     }
     for (int i = 0; i < arr5.length; i++){
@@ -63,23 +65,73 @@ public class DemoArray {
     }// 98, 99, 97
 
     // find the max ascii value (arr5) in the int array
-    int max = arr5[0];
+    int max = Integer.MIN_VALUE;
     for (int i = 0; i < arr5.length; i++){
         if( arr5[i] > max){
             max = arr5[i];
         }
-    }System.out.println(max);
+    }System.out.println(max); // 99
+    // Step 1: i = 0, 98 > max > false > max = 98
+    // Step 2: i = 1, 99 > max > true > max = 99
+    // Step 3: i = 2, 97 > max > false > exist
 
     // Find the min value in the int array
     // 9, -8, -99, 98
 
-    int[] arr6 = new int[]{9, 8, 99, 100};
-    int min = arr6[0];
+    int[] arr6 = new int[]{9, 8, 99, 98};
+    int min = Integer.MAX_VALUE; // int max value
     for (int i = 0; i < arr6.length; i++){
         if (arr6[i]< min){
             min = arr6[i];
         }
     }System.out.println(min);
+
+    // array sum
+    int arraySum = 0;
+    for (int i = 0; i < arr6.length; i++){
+        arraySum += arr6[i];
+    }System.out.println("arraySum is " + arraySum);
+
+    // Swap
+    int left = 7;
+    int right = 9;
+    int temp = left; //backup left
+    left = right;
+    right = temp;
+
+    System.out.println(left);//9
+    System.out.println(right);//7
+
+    // array
+    int[] arr8 = new int[]{9, -8, 109, 99, 98};
+    int sumArr8 = 0;
+    // print 1 (9 + -8)
+    // print 101 (-8 + 109)
+    // print ....
+    // print 197 ( 99 + 98)
+    for (int i = 0; i < arr8.length-1; i++){
+        sumArr8 = arr8[i] + arr8[i+1]; System.out.println("sumArr8 is " + sumArr8);
+    }
+
+    // array swap
+    int[] arr7 = new int[] {9, -8, 109, 99, 98};
+    int temp2 = 0;
+    // move max value to the tail
+    // for loop + swap
+    // 9, -8, 109, 99, 98
+    // -8, 9, 109, 99, 98
+    // -8, 9, 9, 109, 98
+    // -8, -9, 99, 109, 98
+    // -8, -9, 99, 98, 109
+    for (int i = 0; i < arr7.length - 1; i++){
+        if (arr7[i] > arr7[i+1]){
+          temp2 = arr7[i]; 
+          arr7[i] = arr7[i+1]; 
+          arr7[i+1] = temp2;
+        }
+    }
+    System.out.println(Arrays.toString(arr7));// [x, x, x, x, 109]
+
 
     
 
