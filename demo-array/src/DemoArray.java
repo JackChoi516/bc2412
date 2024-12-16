@@ -132,8 +132,21 @@ public class DemoArray {
     }
     System.out.println(Arrays.toString(arr7));// [x, x, x, x, 109]
 
+    Integer[] arr11 = new Integer[]{9, 6, 4};
+    // Product for all numbers
+    int product = 1;
+    for (int i = 0; i < arr11.length; i++){
+        product *= arr11[i];
+    }System.out.println(product); // 216
 
-    
+    double[] price = new double[]{8.2, 6.5, 10.5};
+    int[] quantities = new int[]{9, 8, 3};
+    // 8.2 * 9 + 6.5 * 8 + 10.5 * 3
+    double totalPrice = 0;
+    for (int i = 0; i < price.length; i++){
+        totalPrice = totalPrice + price[i] * quantities[i];
+    }
+    System.out.println(totalPrice); // 158.3
 
 
     

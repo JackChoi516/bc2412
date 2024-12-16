@@ -58,6 +58,58 @@ public class DemoBigDecimal {
     BigDecimal bd20 = BigDecimal.valueOf(4.569);
     System.out.println(bd20.setScale(2, RoundingMode.DOWN)); // 4.56
 
+    double length = 4.2;
+    //double squareArea = 0;
+    // BigDecimal bd21 = BigDecimal. valueOf(length);
+    // BigDecimal squareArea = bd21.multiply(bd21);
+    // System.out.println(squareArea.doubleValue()); // 17.64
+    double squareArea = BigDecimal.valueOf(length).multiply(BigDecimal.valueOf(length)).doubleValue();
+    System.out.println(squareArea); // 17.64
+
+    // Math
+    double pi = 3.14159;
+    double radius = 4.5;
+    double circleArea = BigDecimal.valueOf(radius)
+    .multiply(BigDecimal.valueOf(radius))
+    .multiply(BigDecimal.valueOf(Math.PI))
+    .doubleValue();
+    System.out.println(circleArea); // 63.61725123519331
+
+    circleArea = BigDecimal.valueOf(Math.pow(radius, 2.0))
+    .multiply(BigDecimal.valueOf(Math.PI))
+    .doubleValue();
+    System.out.println(circleArea); // 63.61725123519331
+
+    int x = 8;
+    int y = 9;
+    int max = Integer.MIN_VALUE;
+    max = Math.max(x, max); // if (x > max) {max = x;}
+    max = Math.max(y, max);
+
+    int [] arr = new int[] {10, 9, 3};
+    max = Integer.MIN_VALUE;
+    for (int i = 0; i < arr.length; i++){
+      max = Math.max(arr[i], max);
+    }
+    
+    // Math.min()
+    System.out.println(Math.sqrt(9)); // Java auto convert int value to double value
+    System.out.println(Math.sqrt(10)); //3.1622776601683795
+    System.out.println(Math.sqrt(-10)); // NaN
+
+    // round() > nearest to integer
+    // double u = 3.456;
+    // System.out.println(Math.round(u)); // 3
+
+    //Nearest 2 d.p > 3.46
+    double u3 = 3.456;
+    System.out.println(Math.round(u3 * 100.0 / 100.0)); // 3.46
+
+    double u2 = 3.556;
+    System.out.println(Math.round(u2)); // 4
+
+    System.out.println(Math.abs(-9L)); // 9
+
 
 
     
