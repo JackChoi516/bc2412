@@ -189,12 +189,13 @@ public class DemoArray {
     // asume we have small letter ONLY
     char[] arr12 = new char[]{'p', 'a', 'p', 'b', 'a', 'p'};
     // more than one loop
+    int count = 0;
     //System.out.println(maxNumChar); //p
     for (int i = 0; i < arr12.length; i++){
         for (int j = 0; j < arr12.length; j++){
-            if (arr12[0] == arr12[j+1]){}
+            if (arr12[i] == arr12[j]){count++;}
         }
-    }
+    }System.out.println(count);
 
 
     
