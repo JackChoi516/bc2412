@@ -19,6 +19,7 @@ public class DemoMethod{
     }
     return result;
   }
+  // toCharArray
 
   public static void main(String[] args) {
       
@@ -47,7 +48,23 @@ public class DemoMethod{
     System.out.println(countCharacter("hellllllo", 'l')); // 6
     System.out.println(countCharacter("abcd", 'l')); // 0
     System.out.println(countCharacter("", 'l')); // 0
-    System.out.println(countCharacter("abcd", 'a')); // a
+    System.out.println(countCharacter("abcd", 'a')); // 1
+
+
+    String str = "hello";
+    System.out.println(str.charAt(1));
+    
+
+    String jewels = "aab";
+    String stones = "aerty";
+    int result = 0;
+        for (int i = 0; i < stones.length(); i++){
+            for (int j = 0; j < jewels.length(); j++){
+                if (jewels.charAt(j) == stones.charAt(i)){
+                    result++;
+                }
+              }
+            }System.out.println(result);
 
 
   }
