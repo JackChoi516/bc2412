@@ -188,15 +188,27 @@ public class DemoArray {
 
     // asume we have small letter ONLY
     char[] arr12 = new char[]{'p', 'a', 'p', 'b', 'a', 'p'};
-    // more than one loop
-    int count = 0;
-    //System.out.println(maxNumChar); //p
-    for (int i = 0; i < arr12.length; i++){
-        for (int j = 0; j < arr12.length; j++){
-            if (arr12[i] == arr12[j]){count++;}
-        }
-    }System.out.println(count);
+    char maxNumChar = ' ';
+    int [] counters = new int[26];
+    for (int i = 0; i <arr12.length; i++){
+        counters[arr12[i] - 'a']++; // char - char = int
+    }
+    int max2 = Integer.MIN_VALUE;
+    for (int i = 0; i < counters.length; i++){
+      //max2 = Math.max(counters[i], max2);
+      if (counters[i] > max2){
+        maxNumChar = (char)(i + 97);
+        max2 = counters[i];
+      }
+    }
+    // p - a >
+    System.out.println(maxNumChar); //p
+    
+    char asciiCha97 = 97; // a
+    char asciiCha98 = 98; // b
+    System.out.println(asciiCha98 - asciiCha97); // 1
 
+    
 
     
     }
