@@ -24,6 +24,29 @@ public class DemoString {
     System.out.println(s1.indexOf('e')); // 1
     System.out.println(s1.indexOf('h')); // 0
     System.out.println(s1.indexOf('x')); // -1
+    System.out.println(s1.indexOf("ll")); // 2
+
+    System.out.println(s1.lastIndexOf('l')); // 3
+    System.out.println("hellollo".lastIndexOf("ll")); // 5
+    System.out.println(s1.isEmpty()); // false
+    System.out.println("".isEmpty()); // true
+    System.out.println(" ".isEmpty()); // false
+
+    System.out.println(s1.isBlank()); // false
+    System.out.println("".isBlank()); // true
+    System.out.println(" ".isBlank()); // true
+
+    System.out.println(" hel lo ".trim()); // "hel lo"
+    System.out.println("abc".compareTo("bbb")); //-1
+    System.out.println("abc".compareTo("dbb")); //-3
+    System.out.println("abc".compareTo("azb")); //-25 (a vs z)
+
+    // Chain Method
+    System.out.println("hello".concat("ijk").concat("def").toUpperCase()); // HELLOIJKDEF
+
+    // charAt() > find char by index
+    // indexOf() > find index by char
+    
   }
     
 }
