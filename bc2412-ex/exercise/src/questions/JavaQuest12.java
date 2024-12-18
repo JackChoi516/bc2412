@@ -32,14 +32,15 @@ public class JavaQuest12 {
   // Code a method here to return an array of two numbers that sum up to the
   // [2, 7]
   public static int[] twoSum(int[] dataset, int target) {
+    int[] result = new int[]{-1, -1};
     for (int i = 0; i < dataset.length; i++){
       for (int j = 0; j < dataset.length; j++){
         if (dataset[i] + dataset[j] == target){
-          int[] newInt = new int[] {i, j};
+          result = new int[] {i, j}; 
         }
       }
-    } return newInt;
-    
+    }
+    return result;
   }
 
 }
