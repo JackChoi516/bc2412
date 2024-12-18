@@ -31,10 +31,21 @@ public class JavaQuest10 {
     System.out.print("Input the value: ");
     int newValue = input.nextInt();
 
-    myArray[indexPosition] = newValue;
-    newArray = myArray;
+    if (indexPosition == myArray.length-1){
+      System.out.println("Original Array : " + Arrays.toString(myArray)); break;
+    }else if (indexPosition < myArray.length){
 
-    }System.out.println("New Array: " + Arrays.toString(newArray));
+      for (int i = myArray.length-1; i >= indexPosition; i--){
+        
+        if (i >= indexPosition){
+          myArray[i] = myArray[i - 1];
+        }
+      }
+      myArray[indexPosition] = newValue;
+    }
+    newArray = myArray; 
+    System.out.println("New Array: " + Arrays.toString(newArray));
+    }
 
     //myArray = newArr;
     
