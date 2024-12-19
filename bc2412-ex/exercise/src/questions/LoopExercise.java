@@ -206,15 +206,32 @@ public class LoopExercise {
     // 19. swap the max digit and min digit
     // Assumption: each digit value appear once in the String
     // Print: "49280"
-    // String s19 = "40289";
-    // char min19 = ' ';
-    // char max19 = ' ';
-    // int temp = ' ';
-    // char[] arr19 = s19.toCharArray();
-    // for (int i = 0; i < arr19.length; i++){
-    //   temp = Math.abs(arr19[i] - arr19[i + 1]);
-    // }
-    //System.out.println(max19 - min19);
+    String s19 = "40289";
+    char[] arr19 = s19.toCharArray();
+    char max19 = arr19[0];
+    char min19 = arr19[0];
+    for (int i = 0; i < arr19.length; i++){
+      if (arr19[i] >= max19){
+        max19 = arr19[i];
+      }
+    }
+    for (int i = 0; i <arr19.length; i++){
+      if (arr19[i] <= min19){
+        min19 = arr19[i];
+      }
+    }
+    for (int i = 0; i < arr19.length; i++){
+      if (arr19[i] == min19){
+        arr19[i] = max19;
+      }else if(arr19[i] == max19){
+        arr19[i] = min19;
+      }
+    }
+    String ans ="";
+    for (int i = 0; i < arr19.length; i++){
+      ans += arr19[i];
+    }
+    System.out.println(ans);
 
     // 20. Find the longest String in the String array
     // Print "longest=programming"
