@@ -208,8 +208,24 @@ public class DemoArray {
     char asciiCha98 = 98; // b
     System.out.println(asciiCha98 - asciiCha97); // 1
 
-    
-
-    
+    //
+    int[] arr20 = new int[]{20, -20, 90, 50, -40};
+    // Sorting, without create a new array
+    // ! Move the max value to tail
+    // Step 1: [X, X, X, X, 90] when i = 0
+    // Step 2: [X, X, X, 50, 90] when i = 1
+    // Step 3: [X, X, 20, 50, 90] when i = 2
+    // Step 4: [X, -20, 20, 50, 90] when i = 3
+    int temp4 = 0;
+    for (int i = 0; i < arr20.length - 1; i++){ // 0, 1, 2, 3
+        for (int j = 0; j < arr20.length - 1 - i; j++){//swap index
+            if (arr20[j] > arr20[j + 1]){ 
+                temp4 = arr20[j];
+                arr20[j] = arr20[j + 1];
+                arr20[j + 1] = temp4;
+            }
+        }
+    }
+    System.out.println(Arrays.toString(arr20)); // [-40, -20, 20, 50, 90]
     }
 }
