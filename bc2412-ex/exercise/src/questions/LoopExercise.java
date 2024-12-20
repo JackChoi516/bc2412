@@ -211,12 +211,12 @@ public class LoopExercise {
     char max19 = arr19[0];
     char min19 = arr19[0];
     for (int i = 0; i < arr19.length; i++){
-      if (arr19[i] >= max19){
+      if (arr19[i] > max19){
         max19 = arr19[i];
       }
     }
     for (int i = 0; i <arr19.length; i++){
-      if (arr19[i] <= min19){
+      if (arr19[i] < min19){
         min19 = arr19[i];
       }
     }
