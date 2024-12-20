@@ -185,7 +185,8 @@ public class LoopExercise {
     float[] arr16 = new float[]{0.2f, 0.3f, 0.5f};
 
     // 17. Add value 0.1 to each of value in array arr16
-    // Print: [0.3, 0.4, 0.6]
+    // Print: [0.3, 0.4, 0.7]
+    // Use: BigDeccimal
     for (int i = 0; i < arr16.length; i++){
       arr16[i] += 0.1f;
     }
