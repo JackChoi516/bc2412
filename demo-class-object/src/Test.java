@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Test {
   public static void main(String[] args){
     int x = 3;
@@ -37,12 +39,14 @@ public class Test {
     System.out.println(p3.getAge()); // 30
 
     p2.setEmail("lucas@gmail.com");
-    System.out.println(p2.getEmail());
-    System.out.println(p3.getEmail());
+    System.out.println(p2.getEmail()); // lucas@gmail.com
+    System.out.println(p3.getEmail()); // lucas@gmail.com
     
     String s1 = "hello";
     String[] strings = new String[]{s1, "world"};
-    
+
+    Computer c = new Computer("Asus", "rtx-4060", 10000, true, new String[]{"i7", "15"});
+    System.out.println(Arrays.toString(c.getCpu())); // [i7, 15]
 
     }
 
