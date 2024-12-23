@@ -48,6 +48,11 @@ public class Test {
     Computer c = new Computer("Asus", "rtx-4060", 10000, true, new String[]{"i7", "15"});
     System.out.println(Arrays.toString(c.getCpu())); // [i7, 15]
 
+    String[] rogCpu = new String[]{"i9", "13"};
+    Computer rog = new Computer("asus", "rtx4060", 10000, true, rogCpu);
+    System.out.println(Arrays.toString(rog.getCpu()));
+
+
     }
 
   

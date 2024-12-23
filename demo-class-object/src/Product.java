@@ -21,5 +21,17 @@ public class Product {
   public double getPrice(){
     return this.price;
   }
+
+  // setter
+  public void setQuantities(int quantities){
+    this.quantities = quantities;
+  }
  
+  public void setSize(char size){
+    this.size = size;
+  }
+
+  public void setPrice(double price){
+    this.price = price;
+  }
 }

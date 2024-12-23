@@ -33,5 +33,26 @@ public class Computer {
   public String[] getCpu(){
     return this.cpu;
   }
+
+  // setter
+  public void setBrand(String brand){
+    this.brand = brand;
+  }
+
+  public void setGpu(String gpu){
+    this.gpu = gpu;
+  }
+
+  public void setPrice(int price){
+    this.price = price;
+  }
+
+  public void setIsIntel(boolean trueFalse){
+    this.isIntel = trueFalse;
+  }
+
+  public void setCpu(String[]cpu){
+    this.cpu = cpu;
+  }
   
 }
