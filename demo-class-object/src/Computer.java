@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Computer {
   private String brand;
   private String gpu;
@@ -53,6 +55,21 @@ public class Computer {
 
   public void setCpu(String[]cpu){
     this.cpu = cpu;
+  }
+
+  // main
+  public static void main(String[]args){
+
+    Computer c = new Computer("Asus", "rtx-4060", 10000, true, new String[]{"i7", "15"});
+    System.out.println(Arrays.toString(c.getCpu())); // [i7, 15]
+
+    String[] rogCpu = new String[]{"i9", "13"};
+    Computer rog = new Computer("asus", "rtx4060", 10000, true, rogCpu);
+    System.out.println(Arrays.toString(rog.getCpu())); // [i9, 13]
+
+    String[] newRogCpu = new String[]{"i5", "15"};
+    rog.setCpu(newRogCpu);
+    System.out.println(Arrays.toString(rog.getCpu())); // [i5, 15]
   }
   
 }
