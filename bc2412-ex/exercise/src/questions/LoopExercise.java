@@ -1,8 +1,9 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import javax.sql.rowset.spi.SyncResolver;
 
-import com.azul.crs.client.sysinfo.SystemInfoProvider;
+//import com.azul.crs.client.sysinfo.SystemInfoProvider;
 
 public class LoopExercise {
   public static void main(String[] args) {
@@ -183,14 +184,19 @@ public class LoopExercise {
 
     // 16. Declare a float value (arr16) array with value 0.2, 0.3, 0.5
     float[] arr16 = new float[]{0.2f, 0.3f, 0.5f};
+    System.out.println(Arrays.toString(arr16));
 
     // 17. Add value 0.1 to each of value in array arr16
-    // Print: [0.3, 0.4, 0.7]
+    // Print: [0.3, 0.4, 0.6]
     // Use: BigDeccimal
-    for (int i = 0; i < arr16.length; i++){
-      arr16[i] += 0.1f;
+    double[] arr17 = new double[arr16.length];
+    for (int i = 0; i < arr17.length; i++){
+      arr17[i] = arr16[i];
     }
-    System.out.println(Arrays.toString(arr16));
+    for (int i = 0; i < arr17.length; i ++){
+      arr17[i] = BigDecimal.valueOf(arr17[i]).add(BigDecimal.valueOf(0.1)).doubleValue();
+    }
+    System.out.println(Arrays.toString(arr17));
 
     // 18. Count the number of target strings in the String[]
     String[] arr18 = new String[] {"Steve", "Tommy", "Katie", "Tommy", "Lydia"};
