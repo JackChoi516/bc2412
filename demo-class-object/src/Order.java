@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Order {
@@ -36,17 +37,17 @@ public class Order {
   }
 
   // method
-  public double totalOrderAmout(){
+  public double totalOrderAmount(){
     double result = 0;
     for (int i = 0; i < items.length; i++){
-      result += items[i].getTotalItemAmount();
+      result = BigDecimal.valueOf(result).add(BigDecimal.valueOf(items[i].getTotalItemAmount())).doubleValue();
     }
     return result;
   }
 
   public String showOrderNames(){
     for (Item item : this.items){
-      System.out.println("Name: " + item.getItemName());
+      System.out.println("Order id: " + this.id + " Name: " + item.getItemName());
     }
     return null;
   }
@@ -63,8 +64,8 @@ public class Order {
     order1.getItems();
     order1.showOrderNames();
     
-    // System.out.println(order1.totalOrderAmout());
+    System.out.println(order1.totalOrderAmount());
     
-    System.out.println(Arrays.toString(order1.getItems()));
+    
   }
 }

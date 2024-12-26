@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Customer { // Person "has" name, age
@@ -27,7 +28,7 @@ public class Customer { // Person "has" name, age
   public double totalAmountOfAllOrders() {
     double result = 0;
     for (int i = 0; i < orders.length; i++) {
-      result += orders[i].totalOrderAmout();
+      result = BigDecimal.valueOf(result).add(BigDecimal.valueOf(orders[i].totalOrderAmount())).doubleValue();
     }
     return result;
   }
@@ -51,7 +52,7 @@ public class Customer { // Person "has" name, age
     this.orders = newOrders;
   }
 
-  public Item[] showItems(long orderId) {
+  public Item[] showOrderItems(long orderId) {
     for (Order order : this.orders) {
       if (order.getId() == orderId) {
         // return orer.getItem();
@@ -62,12 +63,14 @@ public class Customer { // Person "has" name, age
   }
 
   public double showTotalAmountOfOrder(long orderId){
+    double result = 0;
     for(Order order : this.orders){
       if (order.getId() == orderId){
-        return order.totalOrderAmout();
+        result = order.totalOrderAmount();
+        System.out.println(result);
       }
     }
-    return 0.0;
+    return result;
   }
 
   public static void main(String[] args) {
@@ -83,12 +86,15 @@ public class Customer { // Person "has" name, age
 
     Order order1 = new Order(1L, new Item[] { item1, item2 });
 
+
+
     Customer c2 = new Customer(2L);
     c2.placeOrder(order1);
     System.out.println(c2.totalAmountOfAllOrders());
     System.out.println(c2.isVip());
 
-    c2.showItems(1L);
+    c2.showOrderItems(1);
+    c2.showTotalAmountOfOrder(1L);
 
   }
 }
