@@ -6,6 +6,10 @@ public class Item {
   private double price;
   private int quantities;
 
+  public Item(){
+
+  }
+
   public Item(String name, double price, int quantities){
     this.name = name;
     this.price = price;
@@ -37,12 +41,12 @@ public class Item {
   }
 
   // instance method
-  public double getTotalItemAmount(){
+  public double totalAmount(){
     return (BigDecimal.valueOf(this.price).multiply(BigDecimal.valueOf(this.quantities))).setScale(2, RoundingMode.HALF_UP).doubleValue();
   }
   
   public static void main(String[] args) {
     Item item1 = new Item("bag", 60.99, 11);
-    System.out.println(item1.getTotalItemAmount());
+    System.out.println(item1.totalAmount());
   }
 }
