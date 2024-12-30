@@ -1,5 +1,6 @@
 public class Supermarket {
   private int availableStock;
+  
   public Supermarket(int availableStock){
     this.availableStock = availableStock;
   }
@@ -33,6 +34,6 @@ public class Supermarket {
     worker2.moveIn(4);
 
     // Single Supermarket scienario
-    
+
   }
 }
