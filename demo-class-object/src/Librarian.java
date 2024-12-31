@@ -19,7 +19,7 @@ public class Librarian {
     Book removedBook = null;
     int length = this.library.getBooks().length;
     for (int i = 0; i < this.library.getBooks().length; i++){
-      if (this.library.getBooks()[i].getBookTitle().contains(title)){
+      if (this.library.getBooks()[i].getBookTitle().equals(title)){
         removedBook = this.library.getBooks()[i];
         length -= 1;
         break;
@@ -55,7 +55,9 @@ public class Librarian {
     librarian.addBook(b1);
     librarian.addBook(b2);
 
-    librarian.removeByTitle("Three pigs");
+    librarian.removeByTitle("Three ");
+
+
 
 
 

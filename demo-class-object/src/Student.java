@@ -81,5 +81,21 @@ public class Student {
     for (int i = 0; i < sArr.length; i++){
       System.out.println(sArr[i].getId() + " " + sArr[i].getCandies());
     }
+
+    // Question 2
+    // Candy.class has attribute color (RED, BLUE, YELLOW)
+    // Student2.class to store his own candies
+
+    // 20 candies > distribute students according to their score
+    // Rule: Every round of distribution, Above 80 score > RED; between 60 - 79 > BLUE, else YELLOW
+
+  // Student 1: 67 score
+  // Student 2: 89 score
+  // Student 3: 50 score
+  // Student 4: 99 score
+  // Student 5: 60 score
+  // Student 6: 59 score
+
+  // Expected output: sysout return Student[] (Student should have Candy attribute)
   }
 }
