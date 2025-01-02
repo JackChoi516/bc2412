@@ -27,9 +27,18 @@ public class Student2 {
     return this.candies.length;
   }
 
-  public void addCandy(Candy candy){
+
+
+  public void getCandyByColor(char color){
+    Candy candy = null;
+    for (int i = 0; i < this.candyManager.getCandies().length; i++){
+      if (this.candyManager.getCandies()[i].getColor() == color){
+        candy = this.candyManager.getCandies()[i];
+        break;
+      }
+    }
     if (candy == null){
-      System.out.println("no candy");
+      System.out.println("cannot find " + color + " candy");
     }else {
     Candy[] newCandies = new Candy[this.candies.length + 1];
     for (int i = 0; i < this.candies.length; i++){
@@ -41,41 +50,9 @@ public class Student2 {
   }
 }
 
-  public void receiveCandyByColor(char color){
-    Candy[] newCandies = new Candy[this.candies.length + 1];
-    for (int i = 0; i < this.candies.length; i++){
-      newCandies[i] = this.candies[i];
-    }
-    newCandies[newCandies.length - 1] = new Candy(color);
-    this.candies = newCandies;
-    
-  }
+
 
   public static void main(String[] args) {
-
-    // int candyCount = 20;
-
-    // while (candyCount > 0){
-    //   for (int i = 0; i < student2s.length; i++){
-    //     if (student2s[i].getScore() > 80 && candyCount >= 1){
-    //       student2s[i].receiveCandyByColor('R');
-    //       candyCount--;
-    //     }else if (student2s[i].getScore() >= 60 && student2s[i].getScore() < 80 && candyCount >= 1){
-    //       student2s[i].receiveCandyByColor('B');
-    //       candyCount--;
-    //     }else if (candyCount >= 1){
-    //       student2s[i].receiveCandyByColor('Y');
-    //       candyCount--;
-    //     }
-    //   }
-    // }
-
-    // for (Student2 student2 :student2s){
-    //   for (Candy candy: student2.getCandies()){
-    //     System.out.print(candy.getColor());
-    //   }
-    //   System.out.println();
-    // }
 
     Candy[] candiesCount = new Candy[]{new Candy('R'), new Candy('R'), new Candy('R'), new Candy('R'), new Candy('R'), new Candy('R'), new Candy('R'), new Candy('B'), new Candy('B'), new Candy('B'), new Candy('B'), new Candy('B'), new Candy('B'), new Candy('B'), new Candy('Y'), new Candy('Y'), new Candy('Y'), new Candy('Y'), new Candy('Y'), new Candy('Y')};
     CandyManager cm1 = new CandyManager("cm1", candiesCount);
@@ -87,14 +64,15 @@ public class Student2 {
     Student2 s6 = new Student2(6, 59, cm1);
     Student2[] student2s = new Student2[]{s1, s2, s3, s4, s5, s6};
     
-    while (cm1.getCandies().length > 0){
+
+  while (cm1.getCandies().length > 0){
     for (int i = 0; i < student2s.length; i++){
       if (student2s[i].getScore() >= 80){
-        student2s[i].addCandy(cm1.getCandyByColor('R'));
+        student2s[i].getCandyByColor('R');
       }else if (student2s[i].getScore() < 80 && student2s[i].getScore() >= 60){
-        student2s[i].addCandy(cm1.getCandyByColor('B'));
+        student2s[i].getCandyByColor('B');
       }else if (student2s[i].getScore() < 60){
-        student2s[i].addCandy(cm1.getCandyByColor('Y'));
+        student2s[i].getCandyByColor('Y');
       }
     }
   }
