@@ -46,7 +46,7 @@ public class Student2 {
     }
     newCandies[newCandies.length - 1] = candy;
     this.candies = newCandies;
-    this.candyManager.takeAwayCandy(candy);
+    this.candyManager.giveCandy(candy);
   }
 }
 

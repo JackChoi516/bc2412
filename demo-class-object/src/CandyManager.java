@@ -24,7 +24,7 @@ public class CandyManager {
     this.candies = newCandies;
   }
 
-  public void takeAwayCandy(Candy candy){
+  public void giveCandy(Candy candy){
     Candy[] newCandies = new Candy[this.candies.length - 1];
     int idx = 0;
     for (int i = 0; i < this.candies.length; i++){
