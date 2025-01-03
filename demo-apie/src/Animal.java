@@ -14,4 +14,11 @@ public class Animal {
     return this.name;
   }
 
+  public void eat(){
+    System.out.println("Animal is eating...");
+  }
+
+  public static void main(String[] args) {
+    
+  }
 }

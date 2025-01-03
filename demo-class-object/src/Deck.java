@@ -33,6 +33,7 @@ public class Deck {
     System.out.println(Math.PI); // public and static
     System.out.println(deck.showCard(5));
     
+    
     for (Card card : deck.cards){
       System.out.println(card.getSuite() + " " + card.getRank());
     }

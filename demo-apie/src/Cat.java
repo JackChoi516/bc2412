@@ -24,11 +24,18 @@ public class Cat extends Animal{
     System.out.println("Cat is walking...");
   }
 
+  @Override
+  public void eat(){
+    System.out.println("Cat is eating...");
+  }
+
   public static void main(String[] args) {
     
     Cat cat = new Cat("Tom", 7);
-    cat.walk();
+    cat.walk();//  // Cat itself method
     System.out.println(cat.getName());
+    cat.eat(); // Animal is eating... // After Override Parent method implemantation
+    // Cat is eating...
 
 
   }
