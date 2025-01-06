@@ -20,6 +20,10 @@ public class Circle extends Shape {
     return this.radius;
   }
 
+  public void setRadius(double radius){
+    this.radius = radius;
+  }
+
   @Override 
   // Override the parent given method
   // compiler will help to check if the parent class has an area() method

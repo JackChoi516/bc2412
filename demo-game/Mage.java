@@ -4,7 +4,7 @@ public class Mage extends Hero{
     super(name, id);
     super.setHp(Mages.levelHp[super.getLevel()]);
     super.setMp(Mages.levelMp[super.getLevel()]);
-    this.setAp(Mages.levelAp[super.getLevel()]);
+    this.setAp(Mages.levelPa[super.getLevel()]);
   }
 
   @Override
@@ -12,7 +12,7 @@ public class Mage extends Hero{
     super.addLevel();
     super.setHp(Mages.levelHp[super.getLevel()]);
     super.setMp(Mages.levelMp[super.getLevel()]);
-    this.setAp(Mages.levelAp[super.getLevel()]);
+    this.setAp(Mages.levelPa[super.getLevel()]);
   }
 
   @Override

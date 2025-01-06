@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Triangle extends Shape {
@@ -24,7 +25,7 @@ public class Triangle extends Shape {
 
   @Override
   public double area(){
-    return 0.0;
+    return BigDecimal.valueOf(this.bottom).multiply(BigDecimal.valueOf(this.height)).divide(BigDecimal.valueOf(2)).doubleValue();
   }
 
   @Override

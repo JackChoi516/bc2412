@@ -35,10 +35,12 @@ public class Warrior extends Hero{
     w.levelUp();
     System.out.println(w);
 
-    a.attack(m);
-    a.attack(m);
+    a.attack(m);    
     System.out.println(m);
 
-    a.attack(m);
+    m.attack(a);
+    System.out.println(a);
+
+    
   }
 }

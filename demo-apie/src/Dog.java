@@ -1,4 +1,4 @@
-public class Dog extends Animal{
+public class Dog extends Animal implements KeepAlive{
   // private String name;
 
 
@@ -12,11 +12,27 @@ public class Dog extends Animal{
     System.out.println("Dog is walking...");
   }
 
+  @Override
+  public void drink(){
+    System.out.println("Dog is drinking...");
+  }
+
+  @Override
+  public void sleep(){
+    System.out.println("Dog is sleeping...");
+  }
+
+   
+
   public static void main(String[] args) {
     
     Dog dog = new Dog("Ken");
     dog.walk();
     System.out.println(dog.getName());
+    dog.eat(); // "Animal is eating..."
+    dog.drink();
+    dog.sleep();
+    dog.walk();
 
 
 

@@ -24,9 +24,33 @@ public abstract class Shape { // Parent Class: color
   abstract double area();
 
   // area() return double
+
+  public static Shape create(char ref, String color, double length){ // S > Square, C > Circle
+    switch(ref){
+      case 'S':
+        return new Square(color, length);
+      case 'C':
+        return new Circle(color, length);
+      default:
+        return null;
+    }
+  }
+
+  public static Circle createCircle(String color, double radius){
+    return new Circle(color, radius);
+  }
   
   public static void main(String[] args) {
     // new Shape('R'); // compile error, abstract class
+    Shape s = Shape.create('C',"Red", 3.0);
+    System.out.println(s.area());
+    
+
+    
+    
+
+    Circle c2 = Shape.createCircle("Red", 3.0);
+    // Hero.createArcher();
+
   }
-  
 }

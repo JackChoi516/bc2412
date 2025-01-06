@@ -28,6 +28,8 @@ public class Archer extends Hero {
     }
   }
 
+  
+
   @Override
   public void levelUp() {
     super.addLevel();

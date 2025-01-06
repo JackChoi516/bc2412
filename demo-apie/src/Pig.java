@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Pig extends Animal {
   private int age;
-  private double weight;
+  
 
   public Pig(){
     // implicitly calling super
