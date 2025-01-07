@@ -96,6 +96,11 @@ public class Animal implements Eatable {
   animals2[1].sleep();
   //animals2[0].eat();
 
+  Animal animal = new Cat("SDF", 7);
+  animal.eat(); // Cat is eating...
+  animal = new Dog("QWE");
+  animal.eat(); // Dog is eating...
+
   // Hero[] heros = new Hero[3];
 
   }

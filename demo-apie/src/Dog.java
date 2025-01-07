@@ -22,7 +22,10 @@ public class Dog extends Animal implements KeepAlive{
     System.out.println("Dog is sleeping...");
   }
 
-   
+  @Override
+  public void eat(){
+    System.out.println("Dog is eating...");
+  }
 
   public static void main(String[] args) {
     
