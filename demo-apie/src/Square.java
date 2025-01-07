@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class Square extends Shape{
     private double length;
   
-  public Square(String color, double length){
+  public Square(Color color, double length){
     super(color);
     this.length = length;
   }

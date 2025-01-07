@@ -9,7 +9,7 @@ public class Triangle extends Shape {
 
   }
 
-  public Triangle(String color, double bottom, double height){
+  public Triangle(Color color, double bottom, double height){
     super(color);
     this.bottom = bottom;
     this.height = height;
@@ -53,8 +53,8 @@ public class Triangle extends Shape {
   }
 
   public static void main(String[] args) {
-    Triangle t1 = new Triangle("Red", 2.0, 2.0);
-    Triangle t2 = new Triangle("Red", 2.0, 2.0);
+    Triangle t1 = new Triangle(Color.RED, 2.0, 2.0);
+    Triangle t2 = new Triangle(Color.RED, 2.0, 2.0);
 
     System.out.println(t1.equals(t2)); // true
     System.out.println(t1.hashCode()); // 78863504

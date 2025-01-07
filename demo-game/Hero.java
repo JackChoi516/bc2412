@@ -16,16 +16,20 @@ public abstract class Hero {
   // attackPower
   // Weapons, 
   private String name;
-  private long id;
   private int hp;
   private int mp;
-  private int ap;
+  private int pd;
+  private int md;
+  private int ag;
+  private int cc;
   private int level;
+  private int id;
+  private static int idCount = 1;
 
-  public Hero(String name, long id){
+  public Hero(String name){
     this.name = name;
-    this.id = id;
-    this.level = 0;
+    this.id = Hero.idCount++;
+    this.level = 1;
   }
 
   public String getName(){
@@ -44,9 +48,36 @@ public abstract class Hero {
     return this.mp;
   }
 
-  public int getAp(){
-    return this.ap;
+  public int getPd(){
+    return this.pd;
   }
+
+  public int getMd(){
+    return this.md;
+  }
+
+  public int getAg(){
+    return this.ag;
+  }
+
+  public int getCc(){
+    return this.cc;
+  }
+
+  public int getId(){
+    return this.id;
+  }
+
+  abstract int getPa();
+  abstract int getMa();
+  abstract int getCd();
+  abstract void levelUp();
+  abstract void physicalAttk(Hero hero);
+  
+
+  // public int getAp(){
+  //   return this.ap;
+  // }
   // Method:
   // Presentation: isAlive
   // Action: Level Up
@@ -62,55 +93,54 @@ public abstract class Hero {
     this.mp = mp;
   }
 
-  public void setAp(int ap){
-    this.ap = ap;
+  public void setPd(int pd){
+    this.pd = pd;
+  }
+
+  public void setMd(int md){
+    this.md = md;
+  }
+
+  public void setAg(int ag){
+    this.ag = ag;
+  }
+
+  public void setCc(int cc){
+    this.cc = cc;
   }
 
   public void addLevel(){
     this.level += 1;
   }
 
-  abstract void levelUp();
-
-  public void attack(Archer archer){
-    if (archer.isAlive()){
-      archer.setHp(archer.getHp() - this.getAp());
-      if (archer.isAlive()){
-        System.out.println("Archer: " + archer.getName() + " - " + this.getAp());
-      }else {
-        System.out.println(this.getName() + " just killed " + archer.getName() + "."); 
-      }      
-    }else {
-      System.out.println("Archer: " + archer.getName() + " is already dead.");
+  public static Hero createHero(HeroRoles HeroRoles, String name){
+    switch (HeroRoles){
+      case Archer:
+        return new Archer(name);
+      case Mage:
+        return new Mage(name);
+      case Warrior:
+        return new Warrior(name);
+      default:
+      return null;
     }
   }
 
-  public void attack(Mage mage) {
-    if (mage.isAlive()) {
-      mage.setHp(mage.getHp() - this.getAp());
-      System.out.println("Mage: " + mage.getName() + " - " + this.getAp());
-      if (mage.getHp() <= 0){
-        System.out.println(this.getName() + " just killed " + "Mage: " + mage.getName() + ".");
-      }
-    }else {
-      System.out.println("Mage: " + mage.getName() + " is already dead.");
-    }
-  }
-
-  public void attack(Warrior warrior) {
-    if (warrior.isAlive()) {
-      warrior.setHp(warrior.getHp() - this.getAp());
-      System.out.println("Warrior: " + warrior.getName() + " - " + this.getAp());
-      if (!(warrior.isAlive())){
-        System.out.println(this.getName() + " just killed Warrior: " + warrior.getName() + ".");
-      }
-    }else {
-      System.out.println("Warrior: " + warrior.getName() + " is already dead.");
-    }
-  }
+  
 
 
   public static void main(String[] args) {
+
+   Hero a = Hero.createHero(HeroRoles.Archer, "ASD");
+   System.out.println(a.getId());
+
+   Hero m = Hero.createHero(HeroRoles.Mage, "null");
+   System.out.println(m.getId());
+
+   System.out.println(a);
+   Archer a1 = (Archer) a;
+
+   a1.physicalAttk(m);
 
   }
 }

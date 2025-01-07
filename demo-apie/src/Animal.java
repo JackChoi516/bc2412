@@ -63,9 +63,9 @@ public class Animal implements Eatable {
 
   // Example 2:
   Shape[] shapes = new Shape[3];
-  shapes[0] = new Circle("Red", 3.0);
-  shapes[1] = new Circle("Blue", 3.0);
-  shapes[2] = new Square("Red", 3.0);
+  shapes[0] = new Circle(Color.RED, 3.0);
+  shapes[1] = new Circle(Color.YELLOW, 3.0);
+  shapes[2] = new Square(Color.RED, 3.0);
 
   for (Shape shape : shapes){
     System.out.println("Area = " + shape.area());
@@ -87,6 +87,14 @@ public class Animal implements Eatable {
   Eatable cat4 = new Cat("Tommy", 9);
   cat4.eat();
   //cat4.walk();
+
+  Sleepable[] animals2 = new Sleepable[2];
+  animals2[0] = new Cat("Steve", 10);
+  animals2[1] = new Dog("Owen");
+  // animals2[2] = new Animal("ABC"); // Animal didn't implement Sleepable.
+  animals2[0].sleep();
+  animals2[1].sleep();
+  //animals2[0].eat();
 
   // Hero[] heros = new Hero[3];
 

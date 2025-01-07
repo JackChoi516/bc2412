@@ -10,7 +10,7 @@ public class Circle extends Shape {
     super();    
   }
 
-  public Circle(String color, double radius){
+  public Circle(Color color, double radius){
     // if you don't specify super() here, implicitly you are calling super()
     super(color); // because you have "extends", you have to "super"
     this.radius = radius;
@@ -54,12 +54,12 @@ public class Circle extends Shape {
   }
 
   public static void main(String[] args) {
-    Circle c1 = new Circle("Red", 2.0);
+    Circle c1 = new Circle(Color.RED, 2.0);
     System.out.println(c1.area());
     // new Circle(); 
     // after you specify a constructor
     // then the default constructor will be no longer exists.
-    Circle c2 = new Circle("Red", 2.0);
+    Circle c2 = new Circle(Color.RED, 2.0);
 
     System.out.println(c1.equals(c2)); // true
     System.out.println(c1.hashCode()); // 1076285808

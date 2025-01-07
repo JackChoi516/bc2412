@@ -1,46 +1,60 @@
 public class Archer extends Hero {
 
-  public Archer(String name, long id) {
-    super(name, id);
-    super.setHp(Archers.levelHp[super.getLevel()]);
-    super.setMp(Archers.levelMp[super.getLevel()]);
-    super.setAp(Archers.levelAp[super.getLevel()]);
+  public Archer(String name) {
+    super(name);
+    super.setHp(Archers.levelHp[super.getLevel() - 1]);
+    super.setMp(Archers.levelMp[super.getLevel() - 1]);
+    super.setPd(Archers.levelPd[super.getLevel() - 1]);
+    super.setMd(Archers.levelMd[super.getLevel() - 1]);
+    super.setAg(Archers.levelAg[super.getLevel() - 1]);
+    super.setCc(Archers.levelCc[super.getLevel() - 1]);
   }
 
-  public void attack(Mage mage) {
-    if (mage.isAlive()) {
-      mage.setHp(mage.getHp() - super.getAp());
-      System.out.println("Mage: " + mage.getName() + " - " + super.getAp());
-      if (mage.getHp() <= 0){
-        System.out.println("Archer: " + super.getName() + " just killed " + "Mage: " + mage.getName());
+  @Override
+  public int getPa(){
+    return Archers.levelPa[super.getLevel() - 1];
+  }
+
+  @Override
+  public int getMa(){
+    return Archers.levelMa[super.getLevel() - 1];
+  }
+
+  @Override
+  public int getCd(){
+    return Archers.levelCd[super.getLevel() - 1];
+  }
+
+  @Override
+  public void levelUp() {
+    super.addLevel();
+    super.setHp(Archers.levelHp[super.getLevel() - 1]);
+    super.setMp(Archers.levelMp[super.getLevel() - 1]);
+    super.setPd(Archers.levelPd[super.getLevel() - 1]);
+    super.setMd(Archers.levelMd[super.getLevel() - 1]);
+    super.setAg(Archers.levelAg[super.getLevel() - 1]);
+    super.setCc(Archers.levelCc[super.getLevel() - 1]);  
+  }
+
+  @Override
+  public void physicalAttk(Hero hero){
+    if (hero.isAlive()){
+      hero.setHp(this.getPa() - hero.getPd());
+      if (hero.isAlive()){
+        System.out.println(hero.getName() + " - " + (this.getPa() - hero.getPd()));
+      }else {
+        System.out.println(super.getName() + " just killed " + hero.getName());
       }
-    }else {
-      System.out.println("Mage: " + mage.getName() + " is already dead.");
-    }
-  }
-
-  public void attack(Warrior warrior) {
-    if (warrior.isAlive()) {
-      warrior.setHp(warrior.getHp() - super.getAp());
-      System.out.println("Warrior: " + warrior.getName() + " - " + super.getAp());
-    }else {
-      System.out.println("Warrior: " + warrior.getName() + " is already dead.");
     }
   }
 
   
 
-  @Override
-  public void levelUp() {
-    super.addLevel();
-    super.setHp(Archers.levelHp[super.getLevel()]);
-    super.setMp(Archers.levelMp[super.getLevel()]);
-    super.setAp(Archers.levelAp[super.getLevel()]);
-  }
+
 
   @Override
   public String toString() {
-    return "Archer[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + super.getAp()
+    return "Archer[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + this.getPa()
         + "]";
   }
 
@@ -49,7 +63,7 @@ public class Archer extends Hero {
   // }
 
   public static void main(String[] args) {
-    Archer a = new Archer("asd", 3L);
+    Archer a = new Archer("asd");
     a.levelUp();
     a.levelUp();
     System.out.println(a.getHp()); // 150

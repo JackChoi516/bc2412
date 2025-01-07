@@ -4,17 +4,17 @@ public abstract class Shape { // Parent Class: color
   // 1. CANNOT create object for abstract class
   // 2. They are both with common attribute for child class
   // 3. abstract class's constructor is for child class to "super"
-  private String color;
+  private Color color;
 
   public Shape(){
     
   }
 
-  public Shape(String color){
+  public Shape(Color color){
     this.color = color;
   }
 
-  public String getColor(){
+  public Color getColor(){
     return this.color;
   }
 
@@ -25,7 +25,7 @@ public abstract class Shape { // Parent Class: color
 
   // area() return double
 
-  public static Shape create(char ref, String color, double length){ // S > Square, C > Circle
+  public static Shape create(char ref, Color color, double length){ // S > Square, C > Circle
     switch(ref){
       case 'S':
         return new Square(color, length);
@@ -36,20 +36,20 @@ public abstract class Shape { // Parent Class: color
     }
   }
 
-  public static Circle createCircle(String color, double radius){
+  public static Circle createCircle(Color color, double radius){
     return new Circle(color, radius);
   }
   
   public static void main(String[] args) {
     // new Shape('R'); // compile error, abstract class
-    Shape s = Shape.create('C',"Red", 3.0);
+    Shape s = Shape.create('C',Color.YELLOW, 3.0);
     System.out.println(s.area());
     
 
     
     
 
-    Circle c2 = Shape.createCircle("Red", 3.0);
+    Circle c2 = Shape.createCircle(Color.RED, 3.0);
     // Hero.createArcher();
 
   }
