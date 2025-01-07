@@ -73,6 +73,7 @@ public abstract class Hero {
   abstract int getCd();
   abstract void levelUp();
   abstract void physicalAttk(Hero hero);
+  abstract void menaAttk(Hero hero);
   
 
   // public int getAp(){
@@ -115,11 +116,11 @@ public abstract class Hero {
 
   public static Hero createHero(HeroRoles HeroRoles, String name){
     switch (HeroRoles){
-      case Archer:
+      case ARCHER:
         return new Archer(name);
-      case Mage:
+      case MAGE:
         return new Mage(name);
-      case Warrior:
+      case WARRIOR:
         return new Warrior(name);
       default:
       return null;
@@ -131,16 +132,15 @@ public abstract class Hero {
 
   public static void main(String[] args) {
 
-   Hero a = Hero.createHero(HeroRoles.Archer, "ASD");
+   Hero a = Hero.createHero(HeroRoles.ARCHER, "ASD");
    System.out.println(a.getId());
 
-   Hero m = Hero.createHero(HeroRoles.Mage, "null");
+   Hero m = Hero.createHero(HeroRoles.MAGE, "null");
    System.out.println(m.getId());
 
    System.out.println(a);
-   Archer a1 = (Archer) a;
 
-   a1.physicalAttk(m);
+   a.physicalAttk(m);
 
   }
 }

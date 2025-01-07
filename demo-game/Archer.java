@@ -39,16 +39,30 @@ public class Archer extends Hero {
   @Override
   public void physicalAttk(Hero hero){
     if (hero.isAlive()){
-      hero.setHp(this.getPa() - hero.getPd());
+      hero.setHp(hero.getHp() - (this.getPa() - hero.getPd()));
       if (hero.isAlive()){
         System.out.println(hero.getName() + " - " + (this.getPa() - hero.getPd()));
       }else {
         System.out.println(super.getName() + " just killed " + hero.getName());
       }
+    }else {
+      System.out.println(hero.getName() + " is already dead.");
     }
   }
 
-  
+  @Override
+  public void menaAttk(Hero hero){
+    if (hero.isAlive()){
+      hero.setHp(hero.getHp() - (this.getMa() - hero.getMd()));
+      if (hero.isAlive()){
+        System.out.println(hero.getName() + " - " + (this.getMa() - hero.getMd()));
+      }else {
+        System.out.println(super.getName() + " just killed " + hero.getName());
+      }
+    }else {
+      System.out.println(hero.getName() + " is already dead.");
+    }
+  }
 
 
 
@@ -58,16 +72,22 @@ public class Archer extends Hero {
         + "]";
   }
 
-  // public void attackSkill(Warrior Warrior){
-
-  // }
 
   public static void main(String[] args) {
-    Archer a = new Archer("asd");
+    Hero a = Hero.createHero(HeroRoles.ARCHER, "QWE");
     a.levelUp();
     a.levelUp();
-    System.out.println(a.getHp()); // 150
-    System.out.println(a.getLevel()); // 1
+    System.out.println(a.getHp()); // 200
+    System.out.println(a.getLevel()); // 3
 
+    Hero m = Hero.createHero(HeroRoles.MAGE, "asd");
+    m.levelUp();
+
+    a.physicalAttk(m);
+    a.physicalAttk(m);
+    a.physicalAttk(m);
+    a.physicalAttk(m);
+    a.menaAttk(m);
+    System.out.println(m);
   }
 }

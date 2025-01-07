@@ -39,18 +39,34 @@ public class Warrior extends Hero{
   @Override
   public void physicalAttk(Hero hero){
     if (hero.isAlive()){
-      hero.setHp(this.getPa() - hero.getPd());
+      hero.setHp(hero.getHp() - (this.getPa() - hero.getPd()));
       if (hero.isAlive()){
         System.out.println(hero.getName() + " - " + (this.getPa() - hero.getPd()));
       }else {
         System.out.println(super.getName() + " just killed " + hero.getName());
       }
+    }else {
+      System.out.println(hero.getName() + " is already dead.");
+    }
+  }
+
+  @Override
+  public void menaAttk(Hero hero){
+    if (hero.isAlive()){
+      hero.setHp(hero.getHp() - (this.getMa() - hero.getMd()));
+      if (hero.isAlive()){
+        System.out.println(hero.getName() + " - " + (this.getMa() - hero.getMd()));
+      }else {
+        System.out.println(super.getName() + " just killed " + hero.getName());
+      }
+    }else {
+      System.out.println(hero.getName() + " is already dead.");
     }
   }
 
   @Override
   public String toString(){
-    return "Warrior[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + this.getPa();
+    return "Warrior[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + this.getPa() + "]";
   }
 
   public static void main(String[] args) {

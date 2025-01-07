@@ -1,6 +1,6 @@
 public enum HeroRoles {
-  Archer,
-  Mage,
-  Warrior,
+  ARCHER,
+  MAGE,
+  WARRIOR,
   ;
 }
