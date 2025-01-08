@@ -25,31 +25,31 @@ public abstract class Shape { // Parent Class: color
 
   // area() return double
 
-  public static Shape create(char ref, Color color, double length){ // S > Square, C > Circle
+  public static Shape create(char ref,double length){ // S > Square, C > Circle
     switch(ref){
       case 'S':
-        return new Square(color, length);
+        return new Square(length);
       case 'C':
-        return new Circle(color, length);
+        return new Circle(length);
       default:
         return null;
     }
   }
 
-  public static Circle createCircle(Color color, double radius){
-    return new Circle(color, radius);
+  public static Circle createCircle(double radius){
+    return new Circle(radius);
   }
   
   public static void main(String[] args) {
     // new Shape('R'); // compile error, abstract class
-    Shape s = Shape.create('C',Color.YELLOW, 3.0);
-    System.out.println(s.area());
+    //Shape s = Shape.create('C',Color.YELLOW, 3.0);
+    //System.out.println(s.area());
     
 
     
     
 
-    Circle c2 = Shape.createCircle(Color.RED, 3.0);
+    ///Circle c2 = Shape.createCircle(Color.RED, 3.0);
     // Hero.createArcher();
 
   }

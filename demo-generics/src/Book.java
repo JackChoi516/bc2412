@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Book {
   private String name;
 
@@ -7,6 +9,23 @@ public class Book {
 
   public String getName(){
     return this.name;
+  }
+
+  @Override
+  public boolean equals(Object obj){
+    if (this == obj){
+      return true;
+    }
+    if (!(obj instanceof Book)){
+      return false;
+    }
+    Book book = (Book) obj;
+    return Objects.equals(book.getName(), this.name);
+  }
+
+  @Override
+  public int hashCode(){
+    return Objects.hash(this.name);
   }
 
   @Override

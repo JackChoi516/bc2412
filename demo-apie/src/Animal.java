@@ -63,9 +63,9 @@ public class Animal implements Eatable {
 
   // Example 2:
   Shape[] shapes = new Shape[3];
-  shapes[0] = new Circle(Color.RED, 3.0);
-  shapes[1] = new Circle(Color.YELLOW, 3.0);
-  shapes[2] = new Square(Color.RED, 3.0);
+  // shapes[0] = new Circle(Color.RED, 3.0);
+  // shapes[1] = new Circle(Color.YELLOW, 3.0);
+  // shapes[2] = new Square(Color.RED, 3.0);
 
   for (Shape shape : shapes){
     System.out.println("Area = " + shape.area());

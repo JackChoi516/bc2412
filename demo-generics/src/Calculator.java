@@ -1,4 +1,12 @@
 public class Calculator<T extends Number> { // Byte, Short, Integer, Long, Float, Double
+  // if we achieve the same purpose without generics,
+  // ByteCalulator.class
+  // ShortCalulator.class
+  // IntegerCalulator.class
+  // LongCalulator.class
+  // FloatCalulator.class
+  // LongCalulator.class
+  // NumberCalulator.class
   private T x;
   private T y;
 
@@ -7,21 +15,21 @@ public class Calculator<T extends Number> { // Byte, Short, Integer, Long, Float
     this.y = y;
   }
 
-  public Number sum(){
-    if (this.x instanceof Byte && this.y instanceof Byte){
-      return (byte) this.x + (byte) this.y; // byte + byte > int > Integer
-    }else if (this.x instanceof Short && this.y instanceof Short){
+  // public Number sum(){ // (short) Short > long > Long
+  //   if (this.x instanceof Byte && this.y instanceof Byte){
+  //     return (byte) this.x + (byte) this.y; // byte + byte > int > Integer
+  //   }else if (this.x instanceof Short && this.y instanceof Short){
+      
+  //   }else if (this.x instanceof Integer && this.y instanceof Integer){
 
-    }else if (this.x instanceof Integer && this.y instanceof Integer){
+  //   }else if (this.x instanceof Long && this.y instanceof Long){
 
-    }else if (this.x instanceof Long && this.y instanceof Long){
+  //   }else if (this.x instanceof Float && this.y instanceof Float){
 
-    }else if (this.x instanceof Float && this.y instanceof Float){
+  //   }else if (this.x instanceof Double && this.y instanceof Double){
 
-    }else if (this.x instanceof Double && this.y instanceof Double){
-
-    }
-  }
+  //   }
+  // }
 
   public static void main(String[] args) {
     Calculator<Byte> calculator = 
@@ -32,9 +40,6 @@ public class Calculator<T extends Number> { // Byte, Short, Integer, Long, Float
       // private Number x;
       // private Number y;
 
-      Double a = new Double("10");
-      Double b = new Double("10");
-      double c = a + b;
-      System.out.println(c);
+
   }
 }
