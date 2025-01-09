@@ -1,6 +1,4 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
-public abstract class Hero {
+public abstract class Hero extends Weapon {
   // HP 
   // MP
   // Level 
@@ -18,15 +16,16 @@ public abstract class Hero {
   private String name;
   private int hp;
   private int mp;
-  private int pd;
-  private int md;
-  private int ag;
-  private int cc;
+  // private int pd;
+  // private int md;
+  // private int ag;
+  // private int cc;
   private int level;
   private int id;
   private static int idCount = 1;
 
   public Hero(String name){
+    super(); // Weapon
     this.name = name;
     this.id = Hero.idCount++;
     this.level = 1;
@@ -48,29 +47,25 @@ public abstract class Hero {
     return this.mp;
   }
 
-  public int getPd(){
-    return this.pd;
-  }
 
-  public int getMd(){
-    return this.md;
-  }
 
-  public int getAg(){
-    return this.ag;
-  }
+  // public int getAg(){
+  //   return this.ag;
+  // }
 
-  public int getCc(){
-    return this.cc;
-  }
+  // public int getCc(){
+  //   return this.cc;
+  // }
 
   public int getId(){
     return this.id;
   }
 
-  abstract int getPa();
-  abstract int getMa();
-  abstract int getCd();
+  abstract int getLevelPa();
+  abstract int getLevelMa();
+  abstract int getLevelCd();
+  abstract int getPd();
+  abstract int getMd();
   abstract void levelUp();
   abstract void physicalAttk(Hero hero);
   abstract void menaAttk(Hero hero);
@@ -94,27 +89,27 @@ public abstract class Hero {
     this.mp = mp;
   }
 
-  public void setPd(int pd){
-    this.pd = pd;
-  }
+  // public void setPd(int pd){
+  //   this.pd = pd;
+  // }
 
-  public void setMd(int md){
-    this.md = md;
-  }
+  // public void setMd(int md){
+  //   this.md = md;
+  // }
 
-  public void setAg(int ag){
-    this.ag = ag;
-  }
+  // public void setAg(int ag){
+  //   this.ag = ag;
+  // }
 
-  public void setCc(int cc){
-    this.cc = cc;
-  }
+  // public void setCc(int cc){
+  //   this.cc = cc;
+  // }
 
   public void addLevel(){
     this.level += 1;
   }
 
-  public static Hero createHero(HeroRoles HeroRoles, String name){
+  public static Hero createHero(Roles HeroRoles, String name){
     switch (HeroRoles){
       case ARCHER:
         return new Archer(name);
@@ -132,10 +127,10 @@ public abstract class Hero {
 
   public static void main(String[] args) {
 
-   Hero a = Hero.createHero(HeroRoles.ARCHER, "ASD");
+   Hero a = Hero.createHero(Roles.ARCHER, "ASD");
    System.out.println(a.getId());
 
-   Hero m = Hero.createHero(HeroRoles.MAGE, "null");
+   Hero m = Hero.createHero(Roles.MAGE, "null");
    System.out.println(m.getId());
 
    System.out.println(a);

@@ -2,46 +2,50 @@ public class Warrior extends Hero{
 
   public Warrior(String name){
     super(name);
-    super.setHp(Warriors.levelHp[super.getLevel() - 1]);
-    super.setMp(Warriors.levelMp[super.getLevel() - 1]);
-    super.setPd(Warriors.levelPd[super.getLevel() - 1]);
-    super.setMd(Warriors.levelMd[super.getLevel() - 1]);
-    super.setAg(Warriors.levelAg[super.getLevel() - 1]);
-    super.setCc(Warriors.levelCc[super.getLevel() - 1]);
+    super.setHp(Warriors.MAX_HP[super.getLevel() - 1]);
+    super.setMp(Warriors.MAX_MP[super.getLevel() - 1]);
+
   }
 
   @Override
-  public int getPa(){
-    return Warriors.levelPa[super.getLevel() - 1];
+  public int getLevelPa(){
+    return Warriors.LEVEL_PA[super.getLevel() - 1];
   }
 
   @Override
-  public int getMa(){
-    return Warriors.levelMa[super.getLevel() - 1];
+  public int getLevelMa(){
+    return Warriors.LEVEL_MA[super.getLevel() - 1];
   }
 
   @Override
-  public int getCd(){
-    return Warriors.levelCd[super.getLevel() - 1];
+  public int getLevelCd(){
+    return Warriors.LEVEL_CD[super.getLevel() - 1];
+  }
+
+  @Override
+  public int getPd(){
+    return Warriors.LEVEL_PD[super.getLevel() - 1];
+  }
+
+  @Override
+  public int getMd(){
+    return Warriors.LEVEL_MD[super.getLevel() - 1];
   }
 
   @Override
   public void levelUp(){
     super.addLevel();
-    super.setHp(Warriors.levelHp[super.getLevel() - 1]);
-    super.setMp(Warriors.levelMp[super.getLevel() - 1]);
-    super.setPd(Warriors.levelPd[super.getLevel() - 1]);
-    super.setMd(Warriors.levelMd[super.getLevel() - 1]);
-    super.setAg(Warriors.levelAg[super.getLevel() - 1]);
-    super.setCc(Warriors.levelCc[super.getLevel() - 1]);
+    super.setHp(Warriors.MAX_HP[super.getLevel() - 1]);
+    super.setMp(Warriors.MAX_MP[super.getLevel() - 1]);
+
   }
 
   @Override
   public void physicalAttk(Hero hero){
     if (hero.isAlive()){
-      hero.setHp(hero.getHp() - (this.getPa() - hero.getPd()));
+      hero.setHp(hero.getHp() - (this.getLevelPa() - hero.getPd()));
       if (hero.isAlive()){
-        System.out.println(hero.getName() + " - " + (this.getPa() - hero.getPd()));
+        System.out.println(hero.getName() + " - " + (this.getLevelPa() - hero.getPd()));
       }else {
         System.out.println(super.getName() + " just killed " + hero.getName());
       }
@@ -53,9 +57,9 @@ public class Warrior extends Hero{
   @Override
   public void menaAttk(Hero hero){
     if (hero.isAlive()){
-      hero.setHp(hero.getHp() - (this.getMa() - hero.getMd()));
+      hero.setHp(hero.getHp() - (this.getLevelMa() - hero.getMd()));
       if (hero.isAlive()){
-        System.out.println(hero.getName() + " - " + (this.getMa() - hero.getMd()));
+        System.out.println(hero.getName() + " - " + (this.getLevelMa() - hero.getMd()));
       }else {
         System.out.println(super.getName() + " just killed " + hero.getName());
       }
@@ -66,7 +70,7 @@ public class Warrior extends Hero{
 
   @Override
   public String toString(){
-    return "Warrior[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + this.getPa() + "]";
+    return "Warrior[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + this.getLevelPa() + "]";
   }
 
   public static void main(String[] args) {

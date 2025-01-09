@@ -1,4 +1,4 @@
-public enum HeroRoles {
+public enum Roles {
   ARCHER,
   MAGE,
   WARRIOR,
