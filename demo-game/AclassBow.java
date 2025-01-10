@@ -1,8 +1,11 @@
 public class AclassBow extends Bow {
-  public static final int pA = 20;
-
-  public static void main(String[] args) {
-    
+  public AclassBow(){
+    super(50, 0);
   }
+
+public static void main(String[] args) {
+  AclassBow a = new AclassBow();
+  System.out.println(a.getWeaponPa());
+}
   
 }

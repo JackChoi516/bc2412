@@ -3,9 +3,9 @@ public abstract class Weapon {
   private int weaponPa;
   private int weaponMa;
 
-  public Weapon(){
-    this.weaponPa = 0;
-    this.weaponMa = 0;
+  public Weapon(int pA, int mA){
+    this.weaponPa = pA;
+    this.weaponMa = mA;
   }
 
   public int getWeaponPa(){

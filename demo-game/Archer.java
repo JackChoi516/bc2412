@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Archer extends Hero {
 
   public Archer(String name) {
@@ -91,10 +93,12 @@ public class Archer extends Hero {
     a.physicalAttk(m);
     a.menaAttk(m);
     System.out.println(m);
-    //a.setWeaponPa(AclassBow.pA);
+    a.setWeaponPa(AclassBow.pA);
     System.out.println(a);
     
     Hero m2 = Hero.createHero(Roles.MAGE, "ZXC");
     a.physicalAttk(m2);
+
+
   }
 }

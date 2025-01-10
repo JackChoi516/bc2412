@@ -39,12 +39,20 @@ public class ArrayList1<T> {
   public static void main(String[] args) {
     // Many String = String[]
 
-    // Variable Length
-    ArrayList<String> strings = new ArrayList<>();
-    strings.add("ABC");
+    // Array: fixed length
+    String[] ss = new String[3];
+    String[] ss2 = new String[]{"ABC", "IJK", "QWE"};
+    // ss2 is an address of the array, ss2[0]
+    System.out.println(ss2[1]); // "IJK", read the "IJK" position directtly
+    
+    // ArrayList: Variable Length
+    // Underlying data structure > array
+
+    ArrayList<String> strings = new ArrayList<>(); // arr with size 0
+    strings.add("ABC"); // arr with size 1
     strings.add("IJK");
-    System.out.println(strings.size()); // 2
-    System.out.println(strings.get(1)); // IJK
+    System.out.println(strings.size()); // 2, arr.length
+    System.out.println(strings.get(1)); // IJK, jump to the elements with index 1 directly
     // System.out.println(strings.get(2)); // java.lang.IndexOutOfBoundsException
 
     // Book[]
