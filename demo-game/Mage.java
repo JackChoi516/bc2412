@@ -32,6 +32,10 @@ public class Mage extends Hero{
     return Mages.LEVEL_MD[super.getLevel() - 1];
   }
 
+  public void setItsWeapon(Stave stave){
+    super.setWeapon(stave);
+  }
+
   @Override
   public void levelUp(){
     super.addLevel();

@@ -40,10 +40,15 @@ public class Archer extends Hero {
     super.setMp(Archers.MAX_MP[super.getLevel() - 1]);
   }
 
+  
+  public void setItsWeapon(Bow bow){
+    super.setWeapon(bow);
+  }
+
   @Override
   public void physicalAttk(Hero hero){
     if (hero.isAlive()){
-      hero.setHp(hero.getHp() - (this.getLevelPa() + super.getWeaponPa() - hero.getPd()));
+      hero.setHp(hero.getHp() - (this.getLevelPa() + super.getWeapon().getpA() - hero.getPd()));
       if (hero.isAlive()){
         System.out.println(hero.getName() + " - " + (this.getLevelPa() - hero.getPd()));
       }else {
@@ -72,7 +77,7 @@ public class Archer extends Hero {
 
   @Override
   public String toString() {
-    return "Archer[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + (this.getLevelPa() + super.getWeaponPa())
+    return "Archer[" + super.getName() + ", Hp:" + super.getHp() + ", Mp:" + super.getMp() + ", Ap:" + (this.getLevelPa() + super.getWeapon().getpA())
         + "]";
   }
 
@@ -87,18 +92,21 @@ public class Archer extends Hero {
     Hero m = Hero.createHero(Roles.MAGE, "asd");
     m.levelUp();
 
-    a.physicalAttk(m);
-    a.physicalAttk(m);
-    a.physicalAttk(m);
-    a.physicalAttk(m);
     a.menaAttk(m);
     System.out.println(m);
-    a.setWeaponPa(AclassBow.pA);
-    System.out.println(a);
+    
+
+    Recurve recurve1 = new Recurve();
+    a.setWeapon(recurve1);
+    recurve1.levelUp();
+    recurve1.levelUp();
+    System.out.println(a); // Archer[QWE, Hp:200, Mp:70, Ap:140]
+
+    a.physicalAttk(m);
     
     Hero m2 = Hero.createHero(Roles.MAGE, "ZXC");
-    a.physicalAttk(m2);
 
+    
 
   }
 }

@@ -1,4 +1,4 @@
-public abstract class Hero extends Weapon {
+public abstract class Hero {
   // HP 
   // MP
   // Level 
@@ -23,12 +23,14 @@ public abstract class Hero extends Weapon {
   private int level;
   private int id;
   private static int idCount = 1;
+  private Weapon weapon;
 
   public Hero(String name){
     super(); // Weapon
     this.name = name;
     this.id = Hero.idCount++;
     this.level = 1;
+    this.weapon = null;
   }
 
   public String getName(){
@@ -61,6 +63,10 @@ public abstract class Hero extends Weapon {
     return this.id;
   }
 
+  public Weapon getWeapon(){
+    return this.weapon;
+  }
+
   abstract int getLevelPa();
   abstract int getLevelMa();
   abstract int getLevelCd();
@@ -87,6 +93,10 @@ public abstract class Hero extends Weapon {
 
   public void setMp(int mp){
     this.mp = mp;
+  }
+
+  public void setWeapon(Weapon weapon){
+    this.weapon = weapon;
   }
 
   // public void setPd(int pd){

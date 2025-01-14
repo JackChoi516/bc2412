@@ -32,6 +32,10 @@ public class Warrior extends Hero{
     return Warriors.LEVEL_MD[super.getLevel() - 1];
   }
 
+  public void setItsWeapon(Sword sword){
+    super.setWeapon(sword);
+  }
+
   @Override
   public void levelUp(){
     super.addLevel();

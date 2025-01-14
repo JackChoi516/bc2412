@@ -1,18 +1,22 @@
 public abstract class Weapon {
+  private int level;
 
-  private int weaponPa;
-  private int weaponMa;
-
-  public Weapon(int pA, int mA){
-    this.weaponPa = pA;
-    this.weaponMa = mA;
+  public Weapon(){
+    this.level = 1;
   }
 
-  public int getWeaponPa(){
-    return this.weaponPa;
+  abstract int getpA();
+
+  abstract int getmA();
+
+  abstract int getcC();
+
+  public int getLevel(){
+    return this.level;
   }
 
-  public void setWeaponPa(int pA){
-    this.weaponPa = pA;
+  public void levelUp(){
+    this.level += 1;
   }
+
 }
