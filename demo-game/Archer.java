@@ -102,6 +102,9 @@ public class Archer extends Hero {
     recurve1.levelUp();
     System.out.println(a); // Archer[QWE, Hp:200, Mp:70, Ap:140]
 
+    Archangel archangel1 = new Archangel();
+    a.setWeapon(archangel1);
+
     a.physicalAttk(m);
     
     Hero m2 = Hero.createHero(Roles.MAGE, "ZXC");
