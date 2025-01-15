@@ -36,13 +36,13 @@ public class ExceptionExercise4 {
   public static void registerUser(String username, String password,
       String email) {
         try {
-          validateEmail(email);
+          validateEmail(email); // if email checking fail, throw and exist this method
           validatePassword(password);
           validateUsername(username);
         } catch (IllegalArgumentException e) {
-          throw new UserRegistrationException();
+          throw new UserRegistrationException(); // re-throw
         }
-        System.out.println("User registered successfully: " + username);
+      System.out.println("User registered successfully: " + username);
   }
 
   // Throw IllegalArgumentException if String username is null or empty string
@@ -56,16 +56,17 @@ public class ExceptionExercise4 {
   // if password is null or password length < 8 or it does not contain
   // any special characters of !@$&_
   private static void validatePassword(String password) {
-    if (password == null || password.length() < 8 && (!(password.contains("!"))) //
-    && (!(password.contains("@"))) && (!(password.contains("$"))) //
-    && (!(password.contains("&")))){
+    if (password == null || password.length() < 8 || !(password.contains("!")) //
+    && !(password.contains("@")) && !(password.contains("$")) //
+    && !(password.contains("&")) && !(password.contains("_"))
+    ){
       throw new IllegalArgumentException();
     }
   }
 
   // Throw IllegalArgumentException if String email is null or it does not contain character @
   private static void validateEmail(String email) {
-    if (!(email.contains("@")) || email == null){
+    if (email == null || !(email.contains("@"))){
       throw new IllegalArgumentException();
     }
   }

@@ -18,23 +18,17 @@ public class ExceptionExercise2 {
     scanner.close();
 
     try {
-      ArrayRetrieval(numbers, index);
+      int x = Integer.parseInt(index);
+      System.out.println("Element at index " + x + ": " + numbers[x]);
     } catch (ArrayIndexOutOfBoundsException e) {
-      System.out.println("Error: Please enter a valid number.");
+      System.out.println("Error: Index is out of bounds.");
     } catch (NumberFormatException e) {
       System.out.println("Error: Please enter a valid number.");
-    }
-
-
-  }
-  public static void ArrayRetrieval(int[] numbers, String input){
-    int index = Integer.parseInt(input);
-    if (index >= numbers.length || index < 0){
+    } finally {
       System.out.println("Array retrieval attempt completed.");
-      throw new ArrayIndexOutOfBoundsException();
     }
-    System.out.println("Array retrieval attempt completed.");
-    System.out.println("Element at index " + index + ": " + numbers[index]);
-    
+
+
   }
+
 }

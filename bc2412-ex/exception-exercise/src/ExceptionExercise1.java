@@ -15,21 +15,16 @@ public class ExceptionExercise1 {
     scanner.close();
 
     // code here ...
+    int result = 0;
     try {
-      divideCal(numerator, denominator);
+      result = numerator / denominator;
+      System.out.println("Resuult: " + result);
     }catch (ArithmeticException e){
       System.out.println("Error: Cannot divided by zero.");
     }
+    System.out.println("Division operation complete.");
     
   }
 
-  public static void divideCal(int num, int denominator){
-    if (denominator == 0){
-      System.out.println("Division operation complete.");
-      throw new ArithmeticException();
-    }
-    System.out.println("Division operation complete.");
-    System.out.println("Result: " + (num / denominator));
-
-  }
+  
 }

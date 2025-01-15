@@ -13,10 +13,15 @@ public class ExceptionExercise3 {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Please enter age: ");
     String age = scanner.nextLine();
+    scanner.close();
     // code here for the caller...
 
     try {
+      int x = Integer.parseInt(age);
       checkAge(age);
+      System.out.println("Age " + x + " is accepted.");
+    } catch (NumberFormatException e){
+      System.out.println("Error: Please enter a valid number.");
     } catch (InvalidAgeException e) {
       System.out.println("Age is invalid. Please input again later.");
     }
@@ -24,21 +29,12 @@ public class ExceptionExercise3 {
   }
 
   // code here for the method
-  public static boolean checkAge(String age){
-    try {
-      int x = Integer.parseInt(age);
-    } catch (NumberFormatException e){
-      throw new InvalidAgeException();
-    }
-    int x = Integer.parseInt(age);
-    if (x > 18){
-      System.out.println("Age " + x + " is accepted.");
-    }else {
-      throw new InvalidAgeException();
-    }
-    return false;
+  public static class InvalidAgeException extends RuntimeException {
+  }
 
-    
-    
+  public static void checkAge(String age){
+    int x = Integer.parseInt(age);
+    if (x < 18)
+      throw new InvalidAgeException();
   }
 }
