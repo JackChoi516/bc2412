@@ -38,6 +38,7 @@ public class LoginManager {
   public void validateUsername2() {
     if (this.username == null || this.username.isEmpty()) {
       throw BusinessRuntimeException.of(SysError.INVALID_USERNAME);
+      // throw new BusinessRuntimeException(SysError.INVALID_USERNAME);
     }
   }
 

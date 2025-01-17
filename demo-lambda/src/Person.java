@@ -1,3 +1,10 @@
+/**
+ * Purpose: 
+ * @author sdfsdf
+ * @since
+ * @version
+ * Date: 
+ */
 public class Person {
   private String name;
   private int age;
@@ -54,7 +61,7 @@ public class Person {
     // 2. If there are many attributes (i.e. 20+ String), you have to manually check //
     // if the value passed to the right parameter
     Person p2 = Person.builder().name("Vincent").age(18).name("Lucas").build();
-    System.out.println(p2.getName());
+    System.out.println(p2.getName()); // Lucas
 
     Person p4 = Person.builder().build();
     System.out.println(p4.getAge()); // 0
