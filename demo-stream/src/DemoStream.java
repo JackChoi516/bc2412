@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -79,6 +80,7 @@ public class DemoStream {
     // Arrays.sort() + Comparator
 
     // Integer[] vs int[], int vs Integer
+    Comparator<Integer> descending = (i1, i2) -> i1 > i2 ? -1 : 1;
     Integer[] arr2 = new Integer[]{2, 4, -1, 1, -3};
     Arrays.sort(arr2, (i1, i2) -> i1 > i2 ? -1 : 1); // Lambda expression of Comparator
     System.out.println(Arrays.toString(arr2));
@@ -94,6 +96,11 @@ public class DemoStream {
     Set<String> newFruits = fruits.stream().collect(Collectors.toSet());
     System.out.println(newFruits);
 
+    List<String> newFruits2 = //
+        fruits.stream().distinct().collect(Collectors.toList());
+    System.out.println(newFruits2);
+
+    
   }
 
   // Convert from a List of Object A (more fields) to List of Object B (less fields)
