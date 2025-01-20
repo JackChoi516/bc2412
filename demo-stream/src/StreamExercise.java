@@ -189,7 +189,8 @@ public class StreamExercise {
     // into an array.
 
     List<Integer> numbers14 = Arrays.asList(1, 2, 3, 4);
-    // List<Integer> ans14 = numbers14.stream().map(e -> e * e).collect(Collectors.toCollection(() -> new ArrayList<>()));
+    Integer[] ans14 = numbers14.stream().map(e -> e * e).toArray(Integer[]::new);
+    System.out.println(ans14);
     // Output: [1, 4, 9, 16]
 
     // 15. Map and Reduce
@@ -202,6 +203,8 @@ public class StreamExercise {
     // new Product("Pen", 5)
     // new Product("Notebook", 7)
     List<Product> products = Arrays.asList(new Product("Book", 10), new Product("Pen", 5), new Product("Notebook", 7));
+    int ans15 = products.stream().collect(Collectors.summingInt(e -> e.getPrice()));
+    System.out.println(ans15);
     // Output: 22
 
     // 16. Grouping
@@ -214,14 +217,17 @@ public class StreamExercise {
     // new Worker("Bob", "IT")
     // new Worker("Charlie", "HR")
     // new Worker("David", "IT")
-
+    List<Worker> workers = Arrays.asList(new Worker("Alice", "HR"), new Worker("Bob", "IT"), new Worker("Charlie", "HR"), new Worker("David", "IT"));
+    Map<String, List<String>> ans16 = workers.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.mapping(e -> e.getName(), Collectors.toList())));
+    System.out.println(ans16);
     // Output: {HR=[Alice, Charlie], IT=[Bob, David]}
 
     // 17. Parallel Streams
     // Task: Given a list of numbers, use a parallel stream to calculate the sum of
     // all elements.
     List<Integer> numbers5 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
+    int ans17 = numbers5.stream().collect(Collectors.summingInt(e -> e));
+    System.out.println(ans17);
     // Output: 55
 
     // 18. FlatMap
@@ -234,6 +240,8 @@ public class StreamExercise {
         Arrays.asList(4, 5, 6), //
         Arrays.asList(7, 8, 9) //
     );
+    List<Integer> listOfIntegers2 = listOfIntegers.stream().flatMap(e -> e.stream()).filter(e -> e > 5).collect(Collectors.toList());
+    System.out.println(listOfIntegers2);
     // Output: [6, 7, 8, 9]
 
     // 19. Distinct and Sorting
@@ -242,6 +250,10 @@ public class StreamExercise {
     // in alphabetical order.
 
     List<String> fruits = Arrays.asList("apple", "banana", "apple", "orange", "banana", "grape");
+    List<String> ans19 = fruits.stream() //
+    .distinct().sorted((e1, e2) -> (int)(e1.charAt(0) - 'a') < (int)(e2.charAt(0) - 'a') ? -1 : 1) //
+    .collect(Collectors.toList());
+    System.out.println(ans19);
     // Output: [apple, banana, grape, orange]
 
     // 20. Partitioning By
@@ -255,7 +267,9 @@ public class StreamExercise {
     // new Children("Bob", 55);
     // new Children("Charlie", 40);
     // new Children("David", 70);
-
+    List<Children> childrens = Arrays.asList(new Children("Alice", 45), new Children("Bob", 55), new Children("Charlie", 40), new Children("David", 70));
+    Map<Boolean, List<String>> ans20 = childrens.stream().collect(Collectors.partitioningBy(e -> e.getScore() > 50, Collectors.mapping(e -> e.getName(), Collectors.toList())));
+    System.out.println(ans20);
     // Output: {false=[Alice, Charlie], true=[Bob, David]}
 
     // 21. Joining Strings
@@ -263,12 +277,17 @@ public class StreamExercise {
     // commas.
 
     List<String> languages = Arrays.asList("Java", "Python", "Rust", "R", "Go");
+    String ans21 = languages.stream().collect(Collectors.joining(", "));
+    System.out.println(ans21);
     // Output: "Java, Python, Rust, R, Go"
 
     // 22. Find First and Any
     // Task: Given a list of integers, find the first number that is divisible by 3.
     List<Integer> ages = Arrays.asList(4, 7, 9, 12, 16, 21);
-
+    Optional<Integer> ans22 = ages.stream().filter(e -> e%3 == 0).findFirst();
+    if (ans22.isPresent()){
+      System.out.println(ans22.get());
+    }
     // Output: 9
 
     // 23. Limit and Skip
@@ -276,6 +295,8 @@ public class StreamExercise {
     // 5 elements.
 
     List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    List<Integer> ans23 = elements.stream().skip(3).limit(5).collect(Collectors.toList());
+    System.out.println(ans23);
     // Output: [4, 5, 6, 7, 8]
 
     // 24. Peek
@@ -284,6 +305,8 @@ public class StreamExercise {
     // intermediate results to the console.
 
     List<Integer> amounts = Arrays.asList(1, 2, 3, 4);
+    List<Integer> ans24 = amounts.stream().map(e -> e * 2).peek(e -> System.out.println(e)).collect(Collectors.toList());
+    System.out.println(ans24);
     // Intermediate output: 2, 4, 6, 8
     // Final Output: [2, 4, 6, 8]
 
@@ -293,16 +316,28 @@ public class StreamExercise {
     // Handle the case where no such string exists using Optional.
 
     List<String> animals = Arrays.asList("cat", "tiger", "panda", "dog");
+    Optional<String> ans25 = animals.stream().filter(e -> e.length() > 4).findFirst();
+    if (ans25.isPresent()){
+      System.out.println(ans25.get());
+    }
     // Output: Optional[tiger]
 
     List<String> animals2 = Arrays.asList("cat", "dog", "bird");
+    Optional<String> ans252 = animals2.stream().filter(e -> e.length() > 4).findFirst();
+    if (ans252.isPresent()){
+      System.out.println(ans252.get());
+    }else {
+      System.out.println("null");
+    }
     // Output: Optional[null]
 
     // 26. Custom Collector
     // Task: Create a custom collector that collects the elements of a stream and
     // remove all duplicates
-
+    
     List<Integer> duplicates = Arrays.asList(2, 1, 2, 3, 4, 3, 5, 5, 6);
+    
+    // Set<Integer> ans26 = 
     // Output: [1, 2, 3, 4, 5, 6] (Set)
 
     // 27. String Length Calculation
@@ -410,6 +445,36 @@ public class StreamExercise {
     }
     public int getPrice(){
       return this.price;
+    }
+  }
+
+  public static class Worker{
+    private String name;
+    private String department;
+    public Worker(String name, String department){
+      this.name = name;
+      this.department = department;
+    }
+    public String getName(){
+      return this.name;
+    }
+    public String getDepartment(){
+      return this.department;
+    }
+  }
+
+  public static class Children{
+    private String name;
+    private int score;
+    public Children(String name, int score){
+      this.name = name;
+      this.score = score;
+    }
+    public String getName(){
+      return this.name;
+    }
+    public int getScore(){
+      return this.score;
     }
   }
 }
