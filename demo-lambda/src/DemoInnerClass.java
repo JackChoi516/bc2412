@@ -9,6 +9,19 @@ public class DemoInnerClass { // Outer Class
     // Outer Class cannot read  inner class object attribute.
     // System.out.println("DemoInnerClass(): x=" + this.x + ", y=" + y);
     System.out.println("Outer.print(): x=" + x);
+
+    // Local Class
+    class Cat{
+      private int age;
+      public Cat(int age){
+        this.age = age;
+      }
+      public int getAge(){
+        return this.age;
+      }
+    }
+    Cat cat = new Cat(10);
+    System.out.println(cat.getAge()); // 10
   }
   
   public static class Library{ // static nested class
@@ -45,5 +58,29 @@ public class DemoInnerClass { // Outer Class
     dic.print(); // Outer.print(): x=10
     student.print(); // Student.print(): x=10, y=10
 
+    // Anonymous Inner Class (before Java 8)
+    Swimable person = new Swimable() {
+      int count = 0;
+      @Override
+      public void swim() {
+        
+        System.out.println("Anonymous object");
+      }
+      public int getCount(){
+        return this.count;
+      }
+    };
+    // person.getCount(); // Static Polymorphism
+    // But if you create Person.class implements Swimable, then the person object may contain
+    // additional mehtods.
+
+    // Lambda Expression (after Java 8)
+    Swimable person2 = () -> System.out.println("Lambda Expression Object");
+
+  }
+
+  @FunctionalInterface
+  private static interface Swimable {
+    void swim();
   }
 }
