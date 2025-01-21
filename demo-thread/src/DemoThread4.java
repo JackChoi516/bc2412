@@ -1,26 +1,42 @@
 import java.util.ArrayList;
+import java.util.List;
+// solution 
+// 1. Native Data structure (Vector)
+// 2. lock the action
+import java.util.Vector;
 
 public class DemoThread4 {
-  private ArrayList<Integer> integers = new ArrayList<>();
+  private List<Integer> integers; //Not Thread-safe
 
-  public void addInteger(){
-    this.integers.add(1);
+  public DemoThread4(){
+    this.integers = new Vector<>(); // Polymorphism
   }
 
-  public ArrayList<Integer> getIntegers(){
-    return this.integers;
-  } 
+  // Encapsulate
+  // public ArrayList<Integer> getIntegers(){
+  //   return this.integers;
+  // } 
+
+  public boolean add(Integer integer){
+    this.integers.contains(2); // lock
+    return this.integers.add(integer); // lock this line of code
+  }
+
+  public int size(){
+    return this.integers.size();
+  }
 
   public static void main(String[] args) {
     DemoThread4 central = new DemoThread4();
     Runnable centralAddTask = () -> {
       for (int i = 0; i < 1_000_000; i++){
-        central.addInteger();
+        central.add(i); 
       }
     };
 
     Thread workerB = new Thread(centralAddTask);
-    workerB.start();
+    workerB.start(); // main thread initialize another thread (workerB) to execute the task.
+    // The workerB execute the Task Only.
 
     Thread workerC = new Thread(centralAddTask);
     workerC.start();
@@ -42,7 +58,7 @@ public class DemoThread4 {
     //   central.addInteger();
     // }
 
-    System.out.println(central.getIntegers().size());
+    System.out.println(central.size());
 
   }
 }
