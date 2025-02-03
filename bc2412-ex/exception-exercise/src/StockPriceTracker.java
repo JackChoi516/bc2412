@@ -35,7 +35,7 @@ public class StockPriceTracker {
   public double getHighestPrice() {
     // code here ...
     // Tips: use maxPricePQ    
-    return maxPricePQ.poll();
+    return maxPricePQ.peek();
   }
 
   public static void main(String[] args) {

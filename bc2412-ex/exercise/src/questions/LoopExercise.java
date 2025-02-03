@@ -1,7 +1,6 @@
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-import javax.sql.rowset.spi.SyncResolver;
 
 //import com.azul.crs.client.sysinfo.SystemInfoProvider;
 
@@ -117,7 +116,7 @@ public class LoopExercise {
     String s11 = "kLKloOOu";
     int count11 = 0;
     for (int i = 0; i < s11.length(); i++){
-      if (s11.charAt(i) < 97){
+      if (s11.charAt(i) < 97){ // Character.isUpperCase()
         count11++;
       }
     }System.out.println("count uppercase = " + count11);
@@ -196,7 +195,7 @@ public class LoopExercise {
     for (int i = 0; i < arr17.length; i ++){
       arr17[i] = BigDecimal.valueOf(arr17[i]).add(BigDecimal.valueOf(0.1)).doubleValue();
     }
-    System.out.println(Arrays.toString(arr17));
+    System.out.println(Arrays.toString(arr17)); // String.valueOf()
 
     // 18. Count the number of target strings in the String[]
     String[] arr18 = new String[] {"Steve", "Tommy", "Katie", "Tommy", "Lydia"};
