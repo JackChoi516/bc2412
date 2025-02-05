@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Deck {
   // 52 cards
@@ -14,17 +16,16 @@ public class Deck {
     }
   }
 
-  public Card[] getCards(){
-    return this.cards;
+  public List<Card> getCards(){
+    return new ArrayList<>(Arrays.asList(this.cards));
   }
 
   public Card getCard(int i){
     return this.cards[i];
   }
 
-  public char[] showCard(int i){
-    char[] showCard = new char[]{this.cards[i].getSuite(), this.cards[i].getRank()};
-    return showCard;
+  public char showCard(int i){
+    return this.cards[i].getSuite();
   }
 
 

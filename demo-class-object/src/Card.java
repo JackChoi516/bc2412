@@ -6,19 +6,19 @@ public class Card {
   // "static final" > constant
   // Constant naming convertion
   public static final char[] SUITES = new char[]{'D', 'C', 'H', 'S'};
-  public static final char[] RANKS = new char[]{'A', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+  public static final Rank[] RANKS = new Rank[]{Rank.ACE, Rank.TWO, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX, Rank.SEVEN, Rank.EIGHT, Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING};
 
   public static final int x = 3;
 
-  private char rank; // 'A', '2', ...'T', 'J', 'Q', 'K'
+  private Rank rank; // 'A', '2', ...'T', 'J', 'Q', 'K'
   private char suite; // 'D', 'C', 'H', 'S'
 
-  public Card(char rank, char suite){
+  public Card(Rank rank, char suite){
     this.rank = rank;
     this.suite = suite;
   }
 
-  public char getRank(){
+  public Rank getRank(){
     return this.rank;
   }
 
@@ -26,5 +26,8 @@ public class Card {
     return this.suite;
   }
   
+  public boolean isSame(){
+    return this.rank == this.getRank();
+  }
 
 }
